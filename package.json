@@ -1,0 +1,45 @@
+{
+  "name": "express-bookings",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Your REST API for managing bookings",
+  "main": "src/index.js",
+  "prisma": {
+    "seed": "node ./prisma/seed.js"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test-positive": "newman run \"./postman/collections/Bookings API.json\" -e \"./postman/environments/Local.postman_environment.json\"",
+    "test-negative": "newman run \"./postman/collections/Bookings API Negative.json\" -e \"./postman/environments/Local.postman_environment.json\"",
+    "test": "npm run test-positive && npm run test-negative",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org elvira-hq --project node-express-final-project https://elvira-hq.sentry.io/projects/node-express-final-project/getting-started/?product=performance-monitoring&product=profiling && sentry-cli sourcemaps upload --org elvira-hq --project node-express-final-project https://elvira-hq.sentry.io/projects/node-express-final-project/getting-started/?product=performance-monitoring&product=profiling"
+  },
+  "author": "Elvira Mersie Cid",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.1.0",
+    "@sentry/cli": "^2.39.1",
+    "@sentry/node": "^7.80.0",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-json-validator": "^1.0.1",
+    "express-json-validator-middleware": "^3.0.1",
+    "json": "^11.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "prisma-json-schema-generator": "^5.1.5",
+    "schema": "^0.2.1",
+    "uuid": "^9.0.0",
+    "winston": "^3.11.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "newman": "^6.0.0",
+    "nodemon": "^3.1.7",
+    "prisma": "^6.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "execMap": {
+    "js": "node --no-deprecation"
+  },
+  "ignore": ["node_modules/*"],
+  "env": {
+    "NODE_NO_WARNINGS": "1"
+  }
+}
